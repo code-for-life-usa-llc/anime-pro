@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <title>Note Pad</title>
+
+    <style>
+        
+        body{
+            
+        }
+        #submitButton{
+            background: black;
+            color: white;
+        }
+
+        li{
+            cursor: pointer;
+        }
+
+        .hideElement{
+            display: none;
+        }
+
+       .changeToPointer{
+           cursor: pointer;
+       }
+    </style>
+</head>
+<body>
+    <div align="center">
+        <h1>Anime Quiz</h1> 
+
+        <div id="userInputDiv" class="input-group mb-3">
+            <input id="userInput" type="text" class="form-control" placeholder="Add Your Name Here" aria-label="" >
+            <span class="input-group-text changeToPointer" id="submitButton">Begin Game</span>
+        </div>
+    </div>
+
+    <p id="username" ></p>
+
+    <div class="card hideElement" id="questionBox">
+        <div class="card-header" >
+         
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" id="questionTitle"> What anime came out in 2014?</h5>
+          <select class="form-select" aria-label="Default select example" id="answerDropdown">
+            <option selected disabled id="answers">Choose an answer</option>
+            <option value="1" id="first">Tokyo ghoul</option>
+            <option value="2" id="second">Death note</option>
+            <option value="3" id="third">Attack on titan</option>
+            <option value="4" id="fourth">Deadman wonderland</option>
+          </select>
+          <a href="#" class="btn btn-primary" id="nextQuestion">Next question</a>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        const addName = document.getElementById('submitButton');
+        const username = document.getElementById('username');
+        const userInput = document.getElementById('userInput');
+        const questionBox = document.getElementById('questionBox');
+        const nextQuestion = document.getElementById('nextQuestion');
+        const questionTitle = document.getElementById('questionTitle');
+        const firstAnswer = document.getElementById('first');
+        const secondAnswer = document.getElementById('second');
+        const thirdAnswer = document.getElementById('third');
+        const fourthAnswer = document.getElementById('fourth');
+
+
+        
+
+
+       const questions = [
+            {"question" : "Where is this anime character from?" , "answers" : [["Level E",1], ["Castlevania", 0], ["Blood C",0], ["Blood lad", 0]]},
+            {"question" : "What Anime is the Eldric Brothers from?" , "answers" : [["FMA/FMAB (FullMetalAlchemist/brotherhood)",1], ["Code Geass",0], ["Naruto",0], ["Jujutsu Kaisen",0 ]]},
+            {"question" : "What Anime recieved the award for Best Anime of the Year in the 2020 Crunchyroll Awards?" , "answers" : [["Great Pretender", 0], ["Jujutsu Kaisen", 1], ["Beastars", 0], ["Keep Your Hands Off Eizouken!", 0], ["Dorohedoro", 0]]},
+            {"question" : "What Anime are you most excited to see a sequel to?" , "answers" : [["Shield Hero",1], ["Bleach 100 Year Blood War",1], ["Demon Slayer", 1]]},
+            {"question" : "Who won the cruncyroll award for best anime of the year in 2018?" , "answers" : [["Devilman Crybaby",0], ["Made in Abyss",1], ["Yuri!!! On ICE",0], ["Mob Psycho 100", 0]]},
+            {"question" : "Which Romance anime do you prefer?" , "answers" : [["Oregairu",1] , ["Toradora",1], ["Horimiya",1], ["Your Name", 1]]},
+            {"question" : "what is your favorite manga out of these answers?" , "answers" : [["Alice in the borderland",1] ["Dorohedoro",1], ["Made in the abyss",1] ,["Erased", 1]]},
+            {"question" : "What was said to be the Strongest Eye Prowess in Naruto?" , "answers" : [["Sharingan",0], ["Byukgan",0] ["Rinnegan",1], ["Ketsuryugan" ,0 ]]},
+            {"question": "What anime has a character who power cannot die?" , "answers" : [["Undead Unlucky",1], ["Naruto",0], ["Assassination classroom", 0]]},
+       ]
+          let x = 0;
+       nextQuestion.addEventListener('click', function(e){
+          // 1.make the curent question disappar
+        let answers = questions[x].answers;
+
+        questionTitle.innerHTML = questions[x].question;
+        x++
+          // 2.save the score
+
+          // 3.make next question pop up
+
+         console.log(answers);
+         console.log(questions[x].question);
+
+        firstAnswer.innerHTML = answers[0][0];
+        secondAnswer.innerHTML = answers[1][0];
+        thirdAnswer.innerHTML = answers[2][0];
+        fourthAnswer.innerHTML = answers[3][0];
+        })
+
+
+
+            
+          
+
+
+
+        addName.addEventListener('click', function(e){
+            if(userInput != "" || userInput != null){
+                username.innerHTML = userInput.value;
+                userInputDiv.style.display = "none";
+                questionBox.style.display = "block";
+            }
+        });
+
+    </script>
+ 
+    
+
+
+    
+</body>
+</html>
