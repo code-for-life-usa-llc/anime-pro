@@ -59,7 +59,7 @@
           <a href="#" class="btn btn-primary" id="nextQuestion">Next question</a>
         </div>
     </div>
-
+    <p id="score">0</p>
 
 
     <script>
@@ -74,6 +74,7 @@
         const secondAnswer = document.getElementById('second');
         const thirdAnswer = document.getElementById('third');
         const fourthAnswer = document.getElementById('fourth');
+        const score = document.getElementById(`score`)
 
 
         
@@ -90,6 +91,7 @@
             {"question" : "What was said to be the Strongest Eye Prowess in Naruto?" , "answers" : [["Sharingan",0], ["Byukgan",0] ["Rinnegan",1], ["Ketsuryugan" ,0 ]]},
             {"question": "What anime has a character who power cannot die?" , "answers" : [["Undead Unlucky",1], ["Naruto",0], ["Assassination classroom", 0]]},
        ]
+    
           let x = 0;
        nextQuestion.addEventListener('click', function(e){
           // 1.make the curent question disappar
@@ -105,9 +107,13 @@
          console.log(questions[x].question);
 
         firstAnswer.innerHTML = answers[0][0];
+        firstAnswer.value = answers[0][1];
         secondAnswer.innerHTML = answers[1][0];
+        secondAnswer.value = answers[1][1];
         thirdAnswer.innerHTML = answers[2][0];
+        thirdAnswer.value = answers[2][1];
         fourthAnswer.innerHTML = answers[3][0];
+        fourthAnswer.value = answers[3][1];
         })
 
 
