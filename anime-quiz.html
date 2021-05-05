@@ -76,31 +76,20 @@
         const fourthAnswer = document.getElementById('fourth');
         const score = document.getElementById(`score`)
         const answerDropdown = document.getElementById(`answerDropdown`);
-
-<<<<<<< HEAD
-        
-=======
->>>>>>> 28bee1f74c56fbe8220cbb015dc5dbd8223157ac
-        
-
+        const timer = document.getElementById('timer');
 
         
         const questions = [
             {"question" : "Where is this anime character from?" , "answers" : [["Level E",1], ["Castlevania", 0], ["Blood C",0], ["Blood lad", 0]]},
             {"question" : "What Anime is the Eldric Brothers from?" , "answers" : [["FMA/FMAB (FullMetalAlchemist/brotherhood)",1], ["Code Geass",0], ["Naruto",0], ["Jujutsu Kaisen",0 ]]},
             {"question" : "What Anime recieved the award for Best Anime of the Year in the 2020 Crunchyroll Awards?" , "answers" : [["Great Pretender", 0], ["Jujutsu Kaisen", 1], ["Beastars", 0], ["Keep Your Hands Off Eizouken!", 0], ["Dorohedoro", 0]]},
-<<<<<<< HEAD
             {"question" : "What Anime are you most excited to see a sequel to?" , "answers" : [["Shield Hero",1], ["Bleach 100 Year Blood War",1], ["Demon Slayer", 1], ["Attack on titan",1]]},
-=======
-            {"question" : "What Anime are you most excited to see a sequel to?" , "answers" : [["Shield Hero",1], ["Bleach 100 Year Blood War",1], ["Demon Slayer", 1], ["",1]]},
->>>>>>> 28bee1f74c56fbe8220cbb015dc5dbd8223157ac
             {"question" : "Who won the cruncyroll award for best anime of the year in 2018?" , "answers" : [["Devilman Crybaby",0], ["Made in Abyss",1], ["Yuri!!! On ICE",0], ["Mob Psycho 100", 0]]},
             {"question" : "Which Romance anime do you prefer?" , "answers" : [["Oregairu",1] , ["Toradora",1], ["Horimiya",1], ["Your Name", 1]]},
             {"question" : "what is your favorite manga out of these answers?" , "answers" : [["Alice in the borderland",1], ["Dorohedoro",1], ["Made in the abyss",1] ,["Erased", 1]]},
             {"question" : "What was said to be the Strongest Eye Prowess in Naruto?" , "answers" : [["Sharingan",0], ["Byukgan",0], ["Rinnegan",1], ["Ketsuryugan" ,0 ]]},
             {"question" : "What anime has a character who power cannot die?" , "answers" : [["Undead Unlucky",1], ["Naruto",0], ["Assassination classroom", 0], ["Shield Hero",0]]},
        ]
-<<<<<<< HEAD
       
 
 
@@ -120,11 +109,40 @@
 
 
 
-=======
-    
-          let x = 0;
-       nextQuestion.addEventListener('click', function(e){
->>>>>>> 28bee1f74c56fbe8220cbb015dc5dbd8223157ac
+setInterval(timer, 10000);
+    function timer(){
+
+        if(!questions[x]){
+                alert("no more questions");
+                return;
+            }
+
+        questionTitle.innerHTML = questions[x].question;
+        let answers = questions[x].answers;
+            if(answerDropdown.value == 1){
+             var currentScore = parseInt(score.innerHTML) + parseInt(answerDropdown.value);
+             score.innerHTML = currentScore;
+            }
+            
+            console.log(currentScore);
+            x++
+
+            firstAnswer.innerHTML = answers[0][0];
+            firstAnswer.value = answers[0][1];
+            secondAnswer.innerHTML = answers[1][0];
+            secondAnswer.value = answers[1][1];
+            thirdAnswer.innerHTML = answers[2][0];
+            thirdAnswer.value = answers[2][1];
+            fourthAnswer.innerHTML = answers[3][0];
+            fourthAnswer.value = answers[3][1];
+        
+    }
+
+ 
+
+    if(timer == 0){
+        return nextQuestion;
+    }
 
         answerDropdown.value;
           // 1.make the curent question disappar
@@ -135,7 +153,6 @@
         let answers = questions[x].answers;
 
         if(answerDropdown.value != "none"){
-<<<<<<< HEAD
             
             questionTitle.innerHTML = questions[x].question;
             if(answerDropdown.value == 1){
@@ -144,9 +161,6 @@
             }
             
             console.log(currentScore);
-=======
-            questionTitle.innerHTML = questions[x].question;
->>>>>>> 28bee1f74c56fbe8220cbb015dc5dbd8223157ac
             x++
 
             firstAnswer.innerHTML = answers[0][0];
@@ -165,11 +179,7 @@
           // 3.make next question pop up
 
          console.log(answers);
-<<<<<<< HEAD
          //console.log(questions[x].question);
-=======
-         console.log(questions[x].question);
->>>>>>> 28bee1f74c56fbe8220cbb015dc5dbd8223157ac
          console.log(answerDropdown.value);
 
         
